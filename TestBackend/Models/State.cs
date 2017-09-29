@@ -5,7 +5,10 @@ using System.Web;
 
 namespace TestBackend.Models
 {
-    public class State
+    public enum State
     {
+        Active,
+        Postponed,
+        Closed        
     }
 }
