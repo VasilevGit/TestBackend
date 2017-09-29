@@ -22,6 +22,18 @@ namespace TestBackend.Controllers
                 Name = "Project 2",
                 Description = "Description Project 2",
                 State = State.Active
+            },
+            new Project() {
+                Id  = 3,
+                Name = "Project 3",
+                Description = "Description Project 3",
+                State = State.Postponed
+            },
+            new Project() {
+                Id  = 4,
+                Name = "Project 4",
+                Description = "Description Project 4",
+                State = State.Closed
             }
         };
 
