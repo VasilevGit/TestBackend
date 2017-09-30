@@ -9,14 +9,11 @@ namespace TestBackend.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
         public string Description { get; set; }
-
-        public DateTime StartDate { get; }
-        public DateTime EndDate { get; set; }
+        public DateTime? StartDate { get; }
+        public DateTime? EndDate { get; set; }
         public State State { get; set; }
 
-
-        public int Project_Id { get; set; }
+        public virtual Project Project { get; set; }
     }
 }

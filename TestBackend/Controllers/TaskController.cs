@@ -10,55 +10,37 @@ namespace TestBackend.Controllers
 {
     public class TaskController : ApiController
     {
-        private static List<Task> _tasks = new List<Task>() {
-            new Task() {
-                Id  = 1,
-                Name = "Task 1",
-                Description = "Description Task 1",
-                State = State.Active
-            },
-            new Task() {
-                Id  = 2,
-                Name = "Task 2",
-                Description = "Description Task 2",
-                State = State.Active
-            }
-        };
+        AppContext _db = new AppContext();
 
         // GET api/task
         public IEnumerable<Task> Get()
         {
-            return _tasks;
+            return _db.Tasks.ToList();
         }
 
         // GET api/task/2
         public Task Get(int id)
         {
-            return _tasks.Find(task => task.Id == id);
+            return _db.Tasks.Find(id);
         }
 
         // POST api/task
         public void Post([FromBody]Task task)
         {
-            _tasks.Add(task);
+            _db.Tasks.Add(task);
+            _db.SaveChanges();
         }
 
         // PUT api/task/2
         public void Put(int id, [FromBody]Task task)
         {
-            var entry = _tasks.Find(t => t.Id == id);
 
-            entry.Name = task.Name;
-            entry.Description = task.Description;
-            entry.EndDate = task.EndDate;
-            entry.State = task.State;
-            entry.Project_Id = task.Project_Id;
         }
 
         // DELETE api/task/2
         public void Delete(int id)
         {
-            _tasks.RemoveAll(t => t.Id == id);
+
         }
     }
 }

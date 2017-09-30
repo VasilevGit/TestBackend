@@ -12,7 +12,6 @@ namespace TestBackend.Models
         public string Description { get; set; }
         public State State { get; set; }
 
-
-        public List<Task> Tasks { get; set; }
+        public virtual IEnumerable<Task> Tasks { get; set; }
     }
 }
